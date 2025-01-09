@@ -1,6 +1,10 @@
 #pip install rag-kmk
 #pip install streamlit
 #streamlit run test.py
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 from rag_kmk.knowledge_base import build_knowledge_base  
 from rag_kmk.vector_db import summarize_collection 
 from rag_kmk.chat_flow import RAG_LLM, generateAnswer
