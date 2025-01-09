@@ -17,7 +17,7 @@ def main_interface():
     # Load knowledge base
     if "knowledge_base" not in st.session_state :
         with st.status("Wait: Loading knowledge base...") as status:
-            knowledge_base= build_knowledge_base(r'.\') 
+            knowledge_base= build_knowledge_base(r'.\files') 
             if knowledge_base: 
                 summarize_collection(knowledge_base) 
                 st.session_state.knowledge_base = knowledge_base
