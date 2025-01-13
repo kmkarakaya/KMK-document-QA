@@ -3,6 +3,11 @@
 # To run: streamlit run run_interface.py
 # Ensure that you have a directory with some documents in it.
 
+# For running on streamlit community cloud:
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 from rag_kmk.knowledge_base import build_knowledge_base  
 from rag_kmk.vector_db import summarize_collection 
 from rag_kmk.chat_flow import RAG_LLM, generateAnswer
